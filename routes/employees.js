@@ -18,15 +18,7 @@ router.get("/:id", getEmployee, (req, res) => {
 //Creating One employee
 router.post("/", async (req, res) => {
     const employee = new Employee({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        startDate: req.body.startDate,
-        department: req.body.department,
-        birthDate: req.body.birthDate,
-        street: req.body.street,
-        city: req.body.city,
-        state: req.body.state,
-        postalZip: req.body.postalZip
+        ...req.body
     });
     try {
         const newEmployee = await employee.save();
